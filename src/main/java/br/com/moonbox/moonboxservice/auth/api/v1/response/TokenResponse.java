@@ -1,5 +1,6 @@
-package br.com.moonbox.moonboxservice.auth.controller.v1.response;
+package br.com.moonbox.moonboxservice.auth.api.v1.response;
 
+import br.com.moonbox.moonboxservice.auth.model.RoleEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,8 +13,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TokenResponse {
-    private String accessToken;
-    private String type;
     private String email;
-    private List<String> roles;
+    private RoleEnum role;
+    private String accessToken;
+    private Integer expirationInMinutes;
 }

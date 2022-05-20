@@ -1,8 +1,8 @@
-package br.com.moonbox.moonboxservice.auth.controller.v1;
+package br.com.moonbox.moonboxservice.auth.api.v1;
 
-import br.com.moonbox.moonboxservice.auth.controller.v1.request.LoginRequest;
-import br.com.moonbox.moonboxservice.auth.controller.v1.request.SignupRequest;
-import br.com.moonbox.moonboxservice.auth.controller.v1.response.TokenResponse;
+import br.com.moonbox.moonboxservice.auth.api.v1.request.LoginRequest;
+import br.com.moonbox.moonboxservice.auth.api.v1.request.SignupRequest;
+import br.com.moonbox.moonboxservice.auth.api.v1.response.TokenResponse;
 import br.com.moonbox.moonboxservice.auth.dto.AuthDto;
 import br.com.moonbox.moonboxservice.auth.service.AuthService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,7 +15,7 @@ import javax.validation.Valid;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/v1/auth")
-public class AuthController {
+public class AuthApi {
 
     private ObjectMapper objectMapper;
     private AuthService authService;

@@ -1,6 +1,6 @@
-package br.com.moonbox.moonboxservice.box.controller;
+package br.com.moonbox.moonboxservice.box.api.v1.response;
 
-import br.com.moonbox.moonboxservice.item.controller.ItemResponse;
+import br.com.moonbox.moonboxservice.item.api.ItemResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -29,7 +29,11 @@ public class AuthService {
 
     public void signup(AuthDto authDto) {
         if (userService.existsByEmail(authDto.getEmail())) {
-            throw new GenericException("Email already registered");
+            throw GenericException.builder()
+                    .code("MBS-001")
+                    .detail("Email already registered.")
+                    .message("Please, try again with another email address.")
+                    .build();
         }
 
         User user = User.builder()
@@ -38,7 +42,7 @@ public class AuthService {
                 .firstName(authDto.getFirstName())
                 .lastName(authDto.getLastName())
                 .birthDate(authDto.getBirthDate())
-                .role(Optional.ofNullable(authDto.getRole()).orElse(RoleEnum.USER))
+                .role(Optional.ofNullable(authDto.getRole()).orElse(RoleEnum.ROLE_USER))
                 .build();
 
         userService.save(user);
@@ -53,11 +57,12 @@ public class AuthService {
         String jwt = jwtHelper.generateJwtToken(authentication);
 
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-        List<String> roles = userDetails.getAuthorities().stream()
+        String role = userDetails.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()).get(0);
 
         return AuthDto.builder()
+                .role(RoleEnum.valueOf(role))
                 .accessToken(jwt)
                 .email(userDetails.getUsername())
                 .userId(userDetails.getId())

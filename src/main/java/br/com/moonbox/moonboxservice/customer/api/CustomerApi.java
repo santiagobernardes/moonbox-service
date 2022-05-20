@@ -1,8 +1,9 @@
-package br.com.moonbox.moonboxservice.customer.controller;
+package br.com.moonbox.moonboxservice.customer.api;
 
 import br.com.moonbox.moonboxservice.customer.repository.Customer;
 import br.com.moonbox.moonboxservice.customer.service.CustomerService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ import java.util.stream.Collectors;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/customers")
-public class CustomerController {
+public class CustomerApi {
 
     private final ObjectMapper objectMapper;
     private final CustomerService customerService;

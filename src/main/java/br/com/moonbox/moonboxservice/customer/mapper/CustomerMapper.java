@@ -1,6 +1,6 @@
 package br.com.moonbox.moonboxservice.customer.mapper;
 
-import br.com.moonbox.moonboxservice.customer.controller.CustomerRequest;
+import br.com.moonbox.moonboxservice.customer.api.CustomerRequest;
 import br.com.moonbox.moonboxservice.customer.repository.Customer;
 
 public class CustomerMapper {

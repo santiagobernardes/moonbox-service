@@ -1,4 +1,4 @@
-package br.com.moonbox.moonboxservice.item.controller;
+package br.com.moonbox.moonboxservice.item.api;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

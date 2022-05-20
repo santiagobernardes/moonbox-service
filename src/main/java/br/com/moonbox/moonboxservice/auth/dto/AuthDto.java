@@ -23,4 +23,5 @@ public class AuthDto {
     private String accessToken;
     private String tokenType;
     private Integer userId;
+    private Integer expirationInMinutes;
 }

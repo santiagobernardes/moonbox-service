@@ -21,10 +21,13 @@ import java.util.stream.Collectors;
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler
-    public final ResponseEntity<ErrorDto> handleAllExceptions(ApiException ex) {
-        ErrorDto exceptionDto = new ErrorDto();
-        log.error(exceptionDto.getMessage(), ex.getHttpStatus());
-        return new ResponseEntity<>(exceptionDto, ex.getHttpStatus());
+    public final ResponseEntity<ErrorDto> handleAllExceptions(GenericException exception) {
+        ErrorDto errorDto = ErrorDto.builder()
+                .code(exception.getCode())
+                .message(exception.getMessage())
+                .detail(exception.getDetail())
+                .build();
+        return new ResponseEntity<>(errorDto, exception.getHttpStatus());
     }
 
     @ExceptionHandler

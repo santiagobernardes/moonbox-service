@@ -1,4 +1,4 @@
-package br.com.moonbox.moonboxservice.auth.controller.v1.request;
+package br.com.moonbox.moonboxservice.auth.api.v1.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
